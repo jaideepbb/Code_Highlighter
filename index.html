@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeGlow - Smart Code Highlighter</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+  <link rel="icon" type="image/x-icon" href="favicon.png" />
+
+</head>
+<body>
+  <div class="container">
+    <h1>CodeGlow <span>✨</span></h1>
+    <textarea id="codeInput" placeholder="Paste or write your code here..."></textarea>
+
+    <div class="controls">
+      <select id="languageSelector">
+        <option value="auto">Auto Detect</option>
+        <option value="javascript">JavaScript</option>
+        <option value="python">Python</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="java">Java</option>
+        <option value="c">C</option>
+        <!-- Add more languages as needed -->
+      </select>
+
+      <button onclick="highlightCode()">Highlight</button>
+      <button onclick="formatCode()">Format</button>
+      <button onclick="checkSyntax()">Check Syntax</button>
+      <button onclick="shareCode()">Get Shareable Link</button>
+      <input id="searchBox" placeholder="Search code..." oninput="searchCode()">
+    </div>
+
+    <pre><code id="highlightedCode" class="hljs"></code></pre>
+
+    <div id="errorOutput"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.2/full/pyodide.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/esprima@4.0.1/dist/esprima.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/diff_match_patch/20121119/diff_match_patch.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
